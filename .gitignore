@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask,django,python
 
 ### Django ###
+env/
 *.log
 *.pot
 *.pyc
@@ -74,7 +75,7 @@ cover/
 # Django stuff:
 
 # Flask stuff:
-instance/
+# instance/
 .webassets-cache
 
 # Scrapy stuff:
