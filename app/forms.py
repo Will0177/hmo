@@ -3,7 +3,7 @@ from wtforms import StringField, RadioField, SelectField, TextAreaField, Integer
 from wtforms import validators
 from app.models import User
 
-all_users = User.query.with_entities(User.name).all()
+all_users = User.query.with_entities(User.full_name).all()
 
 
 class AddUser(FlaskForm):
