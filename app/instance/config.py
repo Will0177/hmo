@@ -7,7 +7,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key')
 
     # SQLite database configuration
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(os.path.join(os.getcwd(), 'database.db'))
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(os.path.join(os.getcwd(), 'hmo.db'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
