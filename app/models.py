@@ -6,13 +6,21 @@ class User(database.Model):
     __tablename__ = "user"
 
     id = database.Column(database.Integer, autoincrement=True, primary_key=True)
-    full_name = database.Column(database.String(100), nullable=False, unique=True)
-    age = database.Column(database.Integer, nullable=False)
-    gender = database.Column(database.Boolean, nullable=False)
+    name = database.Column(database.String(100), nullable=False, unique=True)
+    salary = database.Column(database.Integer, nullable=False)
+    gender = database.Column(database.String(20), nullable=False)
+    date_of_birth = database.Column(database.Date, nullable=False)
     claims = database.relationship("Claim", back_populates="user")
+    time_created = database.Column(database.DateTime, default=datetime.utcnow)
+
 
     def __repr__(self):
-        return "<User: {}>".format(self.full_name)
+        return "<User: {}>".format(self)
+
+    def calculate_age(self):
+        today = date.today()
+        age = today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return age
 
 
 class Claim(database.Model):
